@@ -2,6 +2,8 @@
 
 ## Overview
 
+[Last updated for Swift version 5.9 on 8 Nov 2023]
+
 Suppose you have a large database covering the greatest hits of 20th century music.  You'd like to include this with your iOS MusicMania application.  You could always download the entire thing when the application first launches, but wouldn't it be much better to simply include it with your application in the first place?
 
 Starting in the root directory for the project, you can build both execuables using [SPM](https://www.swift.org/package-manager/).
