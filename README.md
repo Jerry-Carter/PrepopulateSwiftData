@@ -25,10 +25,10 @@ A second command line tool is employed to empty the Write-Ahead Log and perform 
 
 `SQLiteCompactor <path>`
 
-Simply point this at any SQLite database and it will work it's magic.  As the SQLite documentation notes, *"Usually, the WAL file is deleted automatically when the last connection to the database closes."*  This does not appear to happen with SwiftData. *"The only safe way to remove a WAL file is to open the database file...[and]...then immediately close the database."*  In this case, experience has shown that an additional `vacuum` operation is needed to clear the WAL file.
+Simply point this at any SQLite database and it will work it's magic.  As the SQLite documentation notes, *"Usually, the WAL file is deleted automatically when the last connection to the database closes."*  This does not appear to happen with SwiftData. *"The only safe way to remove a WAL file is to open the database file...[and]...then immediately close the database."*  In this case, experience has shown that an additional `vacuum` operation is needed to clear the WAL file.  Don't worry, `SQLiteCompactor` takes care of everything.
 
 ## Step 3: Incorporate the SQLite database as a resource file
 
 As clients vary considerably, no sample code is provided.  Conceptually, the project will need to include the database as a resource and then configure SwiftData to access the include resource.
 
-Paul Hudson of Hacking With Swift has a good [write-up for iOS](https://www.hackingwithswift.com/quick-start/swiftdata/how-to-pre-populate-an-app-with-an-existing-swiftdata-database) which I recommend. 
+Paul Hudson of [Hacking With Swift](https://www.hackingwithswift.com) has a good [write-up for iOS](https://www.hackingwithswift.com/quick-start/swiftdata/how-to-pre-populate-an-app-with-an-existing-swiftdata-database) which I recommend. 
