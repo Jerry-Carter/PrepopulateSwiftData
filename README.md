@@ -35,6 +35,6 @@ Simply point this at any SQLite database and it will work it's magic.  As the SQ
 
 ## Step 3: Incorporate the SQLite database as a resource file
 
-As clients vary considerably, no sample code is provided.  Conceptually, the project will need to include the database as a resource and then configure SwiftData to access the include resource.
+As clients vary considerably, no sample code is provided.  Conceptually, the project will need to include the database as a resource and then configure SwiftData to access the included resource.
 
 Paul Hudson of [Hacking With Swift](https://www.hackingwithswift.com) has a good [write-up for iOS](https://www.hackingwithswift.com/quick-start/swiftdata/how-to-pre-populate-an-app-with-an-existing-swiftdata-database) which I recommend. 
