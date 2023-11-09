@@ -4,11 +4,15 @@
 
 Suppose you have a large database covering the greatest hits of 20th century music.  You'd like to include this with your iOS MusicMania application.  You could always download the entire thing when the application first launches, but wouldn't it be much better to simply include it with your application in the first place?
 
+Starting in the root directory for the project, you can build both execuables using [SPM](https://www.swift.org/package-manager/).
+
+`swift build`
+
 ## Step 1: Build a SwiftData database
 
 I've included a command line tool which extracts data from a PostgreSQL database and copies this into SwiftData.  If you already have built a SwiftData database, you can skip to the next step.  **NOTE: The code will compile but will not run as the PostgreSQL username, password, etc. will not match your architecture.  If you like the idea of a command line tool, this will get you started but the details are necessarily left to you.**
 
-`ClientDatabaseBuilder <path>`
+`.build/debug/ClientDatabaseBuilder <path>`
 
 The code appears in the `Sources/Builder` directory.  In summary, it
 
@@ -23,7 +27,7 @@ At the end of this process, the data that you've selected will be stored in an S
 
 A second command line tool is employed to empty the Write-Ahead Log and perform a vacuum operation which, theoretically, reduces the file size.  After this process, the SwiftData database will be ready for incorporating into the client as a resource.
 
-`SQLiteCompactor <path>`
+`.build/debug/SQLiteCompactor <path>`
 
 Simply point this at any SQLite database and it will work it's magic.  As the SQLite documentation notes, *"Usually, the WAL file is deleted automatically when the last connection to the database closes."*  This does not appear to happen with SwiftData. *"The only safe way to remove a WAL file is to open the database file...[and]...then immediately close the database."*  In this case, experience has shown that an additional `vacuum` operation is needed to clear the WAL file.  Don't worry, `SQLiteCompactor` takes care of everything.
 
